@@ -1,0 +1,360 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 260 30% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 260 25% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 260 25% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 280 100% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 100% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 260 15% 20%;
+    --muted-foreground: 260 10% 65%;
+
+    --accent: 320 100% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 90% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 260 20% 18%;
+    --input: 260 20% 12%;
+    --ring: 280 100% 60%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 260 30% 5%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 280 100% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 100% 55%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 260 20% 18%;
+    --sidebar-ring: 280 100% 60%;
+
+    /* Vibrant neon palette */
+    --neon-purple: 280 100% 60%;
+    --neon-blue: 200 100% 55%;
+    --neon-pink: 320 100% 58%;
+    --neon-cyan: 180 100% 50%;
+    --neon-orange: 25 100% 55%;
+    --neon-green: 150 100% 45%;
+
+    /* Animated gradient stops */
+    --gradient-1: #7c3aed;
+    --gradient-2: #ec4899;
+    --gradient-3: #06b6d4;
+    --gradient-4: #f59e0b;
+    --gradient-5: #10b981;
+  }
+
+  .dark {
+    --background: 260 30% 4%;
+    --foreground: 0 0% 98%;
+    --card: 260 25% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 260 25% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 280 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 100% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 260 15% 20%;
+    --muted-foreground: 260 10% 65%;
+    --accent: 320 100% 58%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 90% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 260 20% 18%;
+    --input: 260 20% 12%;
+    --ring: 280 100% 60%;
+    --sidebar-background: 260 30% 5%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 280 100% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 100% 55%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 260 20% 18%;
+    --sidebar-ring: 280 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: transparent;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      180deg,
+      var(--gradient-1),
+      var(--gradient-2),
+      var(--gradient-3)
+    );
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      180deg,
+      var(--gradient-2),
+      var(--gradient-3),
+      var(--gradient-4)
+    );
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', 'Orbitron', sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  button, [role="button"], a {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.4);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  /* Animated rainbow gradient text */
+  .gradient-text {
+    background: linear-gradient(
+      135deg,
+      var(--gradient-1),
+      var(--gradient-2),
+      var(--gradient-3),
+      var(--gradient-4)
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 6s ease infinite;
+  }
+
+  .gradient-text-hero {
+    background: linear-gradient(
+      135deg,
+      #fff 0%,
+      #c084fc 25%,
+      #f472b6 50%,
+      #22d3ee 75%,
+      #fff 100%
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 5s ease infinite;
+  }
+
+  /* Glowing card hover */
+  .glow-card {
+    @apply relative rounded-xl overflow-hidden;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.4s ease;
+  }
+
+  .glow-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      var(--gradient-1),
+      var(--gradient-2),
+      var(--gradient-3)
+    );
+    background-size: 300% 300%;
+    animation: gradient-shift 4s ease infinite;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+  }
+
+  .glow-card:hover::before {
+    opacity: 1;
+  }
+
+  .glow-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+      0 0 30px rgba(124, 58, 237, 0.3),
+      0 0 60px rgba(236, 72, 153, 0.15);
+  }
+
+  /* Animated section divider */
+  .section-divider {
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--gradient-1),
+      var(--gradient-2),
+      var(--gradient-3),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shimmer-line 3s linear infinite;
+  }
+
+  /* Neon button */
+  .btn-neon {
+    @apply relative overflow-hidden font-orbitron font-bold uppercase tracking-wider;
+    background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
+    box-shadow:
+      0 0 20px rgba(124, 58, 237, 0.4),
+      0 0 40px rgba(236, 72, 153, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .btn-neon:hover {
+    transform: scale(1.05);
+    box-shadow:
+      0 0 30px rgba(124, 58, 237, 0.6),
+      0 0 60px rgba(236, 72, 153, 0.3);
+  }
+
+  .btn-neon::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transform: translateX(-100%);
+    animation: shimmer-sweep 2.5s ease-in-out infinite;
+  }
+
+  /* Play button pulse ring */
+  .play-pulse {
+    @apply relative;
+  }
+
+  .play-pulse::before,
+  .play-pulse::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(168, 85, 247, 0.5);
+    animation: pulse-ring 2s ease-out infinite;
+  }
+
+  .play-pulse::after {
+    animation-delay: 1s;
+  }
+
+  /* Section accent bar */
+  .accent-bar {
+    @apply h-1 rounded-full;
+    background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+    background-size: 200% 100%;
+    animation: shimmer-line 3s linear infinite;
+  }
+
+  /* Glass panel */
+  .glass-panel {
+    @apply backdrop-blur-xl border border-white/10;
+    background: rgba(10, 5, 20, 0.65);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+}
+
+@layer utilities {
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes shimmer-line {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes shimmer-sweep {
+    0% { transform: translateX(-100%); }
+    50%, 100% { transform: translateX(100%); }
+  }
+
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+
+  @keyframes float-orb {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(30px, -40px) scale(1.05); }
+    50% { transform: translate(-20px, 20px) scale(0.95); }
+    75% { transform: translate(15px, 30px) scale(1.02); }
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-float-orb {
+    animation: float-orb 12s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+}
