@@ -275,7 +275,7 @@ export function HeroSection({ onEnter }: HeroSectionProps) {
               className="text-gray-200/90 text-sm sm:text-base mb-7 max-w-sm mx-auto leading-relaxed"
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}
             >
-              India's boldest thriller, crime & drama —{' '}
+              India's thriller, crime & drama —{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300 font-medium">
                 unlimited streaming
               </span>
